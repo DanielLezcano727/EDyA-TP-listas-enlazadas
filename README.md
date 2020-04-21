@@ -7,6 +7,7 @@
  - [ ] Generador de personas
  - [ ] Implementar input para Ordenar lista
  - [ ] Implementar output para Ordenar lista
+ - [ ] Escribir informe
 
 ## Consultas
 

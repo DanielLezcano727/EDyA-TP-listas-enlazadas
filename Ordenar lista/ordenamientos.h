@@ -6,7 +6,7 @@
 
 typedef int (*FuncionComparadora) (void*, void*);
 
-void swap(GNodo*, GNodo*);
+void swap_nodes(GNodo*, GNodo*);
 
 GNodo* busqueda_por_condicion(GNodo*, FuncionComparadora);
 

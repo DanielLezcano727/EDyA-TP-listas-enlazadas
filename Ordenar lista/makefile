@@ -11,7 +11,7 @@ $(ESTRUCTURA).o: $(ESTRUCTURA).h $(ESTRUCTURA).c
 $(ORDENAMIENTO1).o: $(ORDENAMIENTO_H).h $(ORDENAMIENTO1).c
 	gcc -Wall -Wextra -Werror -std=c99 -g -c $(ORDENAMIENTO1).c
 
-main: $(ESTRUCTURA).o $(ESTRUCTURA).h $(ORDENAMIENTO1).o $(ORDENAMIENTO_H).h main.c
+main: $(ESTRUCTURA).o $(ESTRUCTURA).h $(ORDENAMIENTO1).o $(ESTRUCTURA).h main.c
 	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o
 
 clean:

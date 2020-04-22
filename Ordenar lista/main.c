@@ -8,7 +8,7 @@ void visitar(void* dato){
 }
 
 int menor_int(void* a, void* b) {
-    return (*((int*) a)>*((int*) b));
+    return (*((int*) a)<*((int*) b));
 }
 
 int main() {
@@ -28,12 +28,13 @@ int main() {
     *f = 2;
 
     lista = glist_agregar_inicio(lista, a, sizeof(int));
-    
     lista = glist_agregar_inicio(lista, b, sizeof(int));
     lista = glist_agregar_inicio(lista, c, sizeof(int));
     lista = glist_agregar_inicio(lista, d, sizeof(int));
     lista = glist_agregar_inicio(lista, e, sizeof(int));
     lista = glist_agregar_inicio(lista, f, sizeof(int));
+
+    // lista = glist_insertar(lista, 2, b, sizeof(int));
 
     glist_recorrer(lista, visitar);
     puts("");

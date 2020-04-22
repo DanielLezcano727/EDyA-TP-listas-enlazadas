@@ -6,7 +6,7 @@
 
 typedef int (*FuncionComparadora) (void*, void*);
 
-void swap(GNodo*, GNodo*, GList*);
+void swap(GNodo*, GNodo*);
 
 GNodo* menor(GNodo*, FuncionComparadora);
 

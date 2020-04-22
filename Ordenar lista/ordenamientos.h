@@ -3,5 +3,6 @@
 
 #include <stddef.h>
 
+void insertion_sort(GList*, FuncionComparadora);
 
 #endif 

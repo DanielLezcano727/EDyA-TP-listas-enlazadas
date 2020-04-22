@@ -29,4 +29,6 @@ GList* glist_insertar(GList*, int, void*, size_t);
 
 void glist_recorrer(GList*, FuncionVisitante);
 
+int glist_largo(GList*);
+
 #endif /* __GLIST_H__ */

@@ -39,7 +39,7 @@ int main() {
     glist_recorrer(lista, visitar);
     puts("");
 
-    selection_sort(lista, menor_int);
+    mergesort(lista, menor_int);
 
     glist_recorrer(lista, visitar);
 

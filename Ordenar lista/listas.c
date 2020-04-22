@@ -104,3 +104,9 @@ void glist_recorrer(GList* lista, FuncionVisitante visit) {
   for(GNodo *aux = lista->inicio; aux!=NULL;aux=aux->sig)
     visit(aux->dato);
 }
+
+int glist_largo(GList* lista){
+  int largo = 0;
+  for(GNodo *aux=lista->inicio; aux!=NULL;aux=aux->sig, largo++);
+  return largo;
+}

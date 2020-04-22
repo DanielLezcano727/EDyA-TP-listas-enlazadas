@@ -17,3 +17,7 @@
     * Reasignar el puntero:
       * ¿Que hacer respecto a los datos primitivos?
       * ¿Que hacer hacer si el usuario modifica los datos?
+
+## Notas para informe
+* Convenciones:
+   * La función que compara es T si x > y

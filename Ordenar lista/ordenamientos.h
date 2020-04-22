@@ -8,7 +8,8 @@ typedef int (*FuncionComparadora) (void*, void*);
 
 void swap_nodes(GNodo*, GNodo*);
 GNodo* busqueda_por_condicion(GNodo*, FuncionComparadora);
-GNodo* merge(GNodo*, GNodo*, GNodo*, GNodo*, FuncionComparadora);
+void merge(GNodo*, GNodo*, GNodo*, FuncionComparadora);
+void shift_nodos(GNodo*, GNodo*);
 
 void selection_sort(GList*, FuncionComparadora);
 void insertion_sort(GList*, FuncionComparadora);

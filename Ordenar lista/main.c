@@ -15,17 +15,19 @@ int main() {
     GList* lista = glist_crear();
 
     int* a = malloc(sizeof(int));
-    *a = 5;
+    *a = 9;
     int* b = malloc(sizeof(int));
-    *b = 1;
+    *b = 8;
     int* c = malloc(sizeof(int));
-    *c = 3;
+    *c = 5;
     int* d = malloc(sizeof(int));
     *d = 4;
     int* e = malloc(sizeof(int));
-    *e = 6;
+    *e = 7;
     int* f = malloc(sizeof(int));
-    *f = 2;
+    *f = 6;
+    int* g = malloc(sizeof(int));
+    *g = 2;
 
     lista = glist_agregar_inicio(lista, a, sizeof(int));
     lista = glist_agregar_inicio(lista, b, sizeof(int));
@@ -33,8 +35,7 @@ int main() {
     lista = glist_agregar_inicio(lista, d, sizeof(int));
     lista = glist_agregar_inicio(lista, e, sizeof(int));
     lista = glist_agregar_inicio(lista, f, sizeof(int));
-
-    // lista = glist_insertar(lista, 2, b, sizeof(int));
+    lista = glist_agregar_inicio(lista, g, sizeof(int));
 
     glist_recorrer(lista, visitar);
     puts("");

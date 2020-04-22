@@ -11,5 +11,6 @@ void swap_nodes(GNodo*, GNodo*);
 GNodo* busqueda_por_condicion(GNodo*, FuncionComparadora);
 
 void selection_sort(GList*, FuncionComparadora);
+void insertion_sort(GList*, FuncionComparadora);
 
 #endif 

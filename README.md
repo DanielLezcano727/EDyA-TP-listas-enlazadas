@@ -1,9 +1,9 @@
 # TP 1 EdyAl
 
 ## Tareas:
- - [ ] Implementacion de selection sort **Fran** 
- - [ ] Implementacion de merge sort
- - [ ] Implementacion de insertion sort **Dani** 
+ - [X] Implementacion de selection sort **Fran** 
+ - [-] Implementacion de merge sort
+ - [X] Implementacion de insertion sort **Dani** 
  - [ ] Generador de personas
  - [ ] Implementar input para Ordenar lista
  - [ ] Implementar output para Ordenar lista

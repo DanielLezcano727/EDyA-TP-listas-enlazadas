@@ -9,14 +9,14 @@ GList* glist_crear() {
   return lista;
 }
 
-void glist_destruir(GList* lista) {
+void glist_destruir(GList* lista, Destruir d) {
   if(lista != NULL) {
     GNodo* temp;
   
     while(lista->inicio != NULL) {
       temp = lista->inicio;
       lista->inicio = lista->inicio->sig;
-      free(temp->dato);
+      d(temp->dato);
       free(temp);
     }
     free(lista);

@@ -11,29 +11,31 @@ int menor_int(void* a, void* b) {
     return (*((int*) a)<*((int*) b));
 }
 
+void* copia(void* dato){
+    void* dato_copia = malloc(sizeof(int));
+    *((int*)dato_copia) = *((int*)dato);
+    return dato_copia;
+}
+
+void destruir(void* dato){
+    free(dato);
+}
+
 int main() {
     GList* lista = glist_crear();
 
-    int* a = malloc(sizeof(int));
-    *a = 5;
-    int* b = malloc(sizeof(int));
-    *b = 1;
-    int* c = malloc(sizeof(int));
-    *c = 3;
-    int* d = malloc(sizeof(int));
-    *d = 4;
-    int* e = malloc(sizeof(int));
-    *e = 6;
-    int* f = malloc(sizeof(int));
-    *f = 2;
-
-    lista = glist_agregar_inicio(lista, a, sizeof(int));
-    lista = glist_agregar_inicio(lista, b, sizeof(int));
-    lista = glist_agregar_inicio(lista, c, sizeof(int));
-    lista = glist_agregar_inicio(lista, d, sizeof(int));
-    lista = glist_agregar_inicio(lista, e, sizeof(int));
-    lista = glist_agregar_inicio(lista, f, sizeof(int));
-
+    int a = 5;
+    lista = glist_agregar_inicio(lista, &a, copia);
+    a = 1;
+    lista = glist_agregar_inicio(lista, &a, copia);
+    a = 3;
+    lista = glist_agregar_inicio(lista, &a, copia);
+    a = 4;
+    lista = glist_agregar_inicio(lista, &a, copia);
+    a = 6;
+    lista = glist_agregar_inicio(lista, &a, copia);
+    a = 2;
+    lista = glist_agregar_inicio(lista, &a, copia);
     // lista = glist_insertar(lista, 2, b, sizeof(int));
 
     glist_recorrer(lista, visitar);
@@ -43,7 +45,7 @@ int main() {
 
     glist_recorrer(lista, visitar);
 
-    glist_destruir(lista);
+    glist_destruir(lista, destruir);
 
     return 0;
 }

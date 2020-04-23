@@ -9,14 +9,14 @@ GList* glist_crear() {
   return lista;
 }
 
-void glist_destruir(GList* lista) {
+void glist_destruir(GList* lista, Destruir d) {
   if(lista != NULL) {
     GNodo* temp;
   
     while(lista->inicio != NULL) {
       temp = lista->inicio;
       lista->inicio = lista->inicio->sig;
-      free(temp->dato);
+      d(temp->dato);
       free(temp);
     }
     free(lista);
@@ -27,12 +27,10 @@ int glist_vacia(GList* lista) {
   return lista == NULL || lista->inicio == NULL;
 }
 
-GList* glist_agregar_final(GList* lista, void* dato, size_t tipo) {
+GList* glist_agregar_final(GList* lista, void* dato, Copiar cop) {
   if(lista != NULL) {
     GNodo* nuevo = malloc(sizeof(GNodo));
-    nuevo->dato = malloc(tipo);
-    free(nuevo->dato); //CAMBIAR
-    nuevo->dato = dato;
+    nuevo->dato = cop(dato);
     nuevo->sig = NULL;
 
     if(lista->inicio == NULL)
@@ -46,13 +44,11 @@ GList* glist_agregar_final(GList* lista, void* dato, size_t tipo) {
   return lista;
 }
 
-GList* glist_agregar_inicio(GList* lista, void* dato, size_t tipo) {
+GList* glist_agregar_inicio(GList* lista, void* dato, Copiar cop) {
   if(lista != NULL){
 
     GNodo* nuevo = malloc(sizeof(GNodo));
-    nuevo->dato = malloc(tipo);
-    free(nuevo->dato); //CAMBIAR
-    nuevo->dato = dato;
+    nuevo->dato = cop(dato);
     
     nuevo->sig = lista->inicio;
     lista->inicio = nuevo;
@@ -64,12 +60,10 @@ GList* glist_agregar_inicio(GList* lista, void* dato, size_t tipo) {
   return lista;
 }
 
-GList* glist_insertar(GList* lista, int pos, void* dato, size_t tipo) {
+GList* glist_insertar(GList* lista, int pos, void* dato, Copiar cop) {
   if(lista != NULL) {
     GNodo* nuevo = malloc(sizeof(GNodo));
-    nuevo->dato = malloc(tipo);
-    free(nuevo->dato); //CAMBIAR
-    nuevo->dato = dato;
+    nuevo->dato = cop(dato);
 
     if(lista->inicio == NULL){
       nuevo->sig = NULL;

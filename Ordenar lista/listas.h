@@ -4,6 +4,8 @@
 #include <stddef.h>
 
 typedef void (*FuncionVisitante) (void*);
+typedef void (*Destruir) (void*);
+typedef void* (*Copiar) (void*);
 
 typedef struct _GNodo {
   void * dato ;
@@ -17,15 +19,15 @@ typedef struct _GList {
 
 GList* glist_crear();
 
-void glist_destruir(GList*);
+void glist_destruir(GList*, Destruir);
 
 int glist_vacia(GList*);
 
-GList* glist_agregar_final(GList*, void*, size_t);
+GList* glist_agregar_final(GList*, void*, Copiar);
 
-GList* glist_agregar_inicio(GList*, void*, size_t);
+GList* glist_agregar_inicio(GList*, void*, Copiar);
 
-GList* glist_insertar(GList*, int, void*, size_t);
+GList* glist_insertar(GList*, int, void*, Copiar);
 
 void glist_recorrer(GList*, FuncionVisitante);
 

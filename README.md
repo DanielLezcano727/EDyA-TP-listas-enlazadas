@@ -2,7 +2,7 @@
 
 ## Tareas:
  - [X] Implementacion de selection sort **Fran** 
- - [-] Implementacion de merge sort
+ - [ ] Implementacion de merge sort
  - [X] Implementacion de insertion sort **Dani** 
  - [ ] Generador de personas
  - [ ] Implementar input para Ordenar lista

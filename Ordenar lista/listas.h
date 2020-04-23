@@ -5,6 +5,7 @@
 
 typedef void (*FuncionVisitante) (void*);
 typedef void (*Destruir) (void*);
+typedef void* (*Copiar) (void*);
 
 typedef struct _GNodo {
   void * dato ;

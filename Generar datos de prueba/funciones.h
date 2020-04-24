@@ -14,7 +14,7 @@ int strlen_unsigned(unsigned char[]);
 int leer_paises(char*, unsigned char***);
 void destruir_paises(int, unsigned char**);
 
-char* leer_persona(FILE*, int, int);
+void leer_persona(FILE*, int, int, unsigned char*);
 void generar_resultado(char*, char*, unsigned char** , int, int);
 
 #endif

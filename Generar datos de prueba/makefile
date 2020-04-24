@@ -10,4 +10,4 @@ main: $(FUNCIONES).o main.c
 	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(FUNCIONES).o
 
 clean:
-	rm *.o main
+	rm *.o main vgcore*

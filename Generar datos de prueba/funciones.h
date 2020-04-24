@@ -8,13 +8,15 @@
 #define INCREMENTO_PAISES 50
 #define MAX_BUFFER 256
 
-void strcpy_unsigned(unsigned char*, unsigned char*);
-int strlen_unsigned(unsigned char[]);
+void strcpy_unsigned(unsigned char* copia, unsigned char* original);
+int strlen_unsigned(unsigned char str[]);
 
-int leer_paises(char*, unsigned char***);
-void destruir_paises(int, unsigned char**);
+int cant_personas(FILE* fpersonas);
+int* generar_numeros_aleatorios(int cantidad, int limite);
+int leer_paises(char* nameFilePaises, unsigned char*** paises);
+void destruir_paises(int cantidad, unsigned char** paises);
 
-void leer_persona(FILE*, int, int, unsigned char*);
-void generar_resultado(char*, char*, unsigned char** , int, int);
+void leer_persona(FILE* fpersonas, int posIni, int posFin, unsigned char* persona);
+void generar_resultado(char* nameFileSalida, char* nameFilePersonas, unsigned char** paises, int cantPaises, int cantPedida);
 
 #endif

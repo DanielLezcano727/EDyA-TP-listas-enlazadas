@@ -2,12 +2,24 @@
 
 ## Tareas:
  - [X] Implementacion de selection sort **Fran** 
+ 
  - [ ] Implementacion de merge sort
+    - [ ] Mergear alguna implemetación
+    
  - [X] Implementacion de insertion sort **Dani** 
+ 
  - [ ] Generador de personas
+    - [ ] Implementar caso X personas de Y donde X < Y/2
+    - [ ] Implementar caso X personas de Y donde X > Y/2
+    
  - [ ] Implementar input para Ordenar lista
+ 
  - [ ] Implementar output para Ordenar lista
+    - [ ] Función que parsea struct_persona a string
+    
  - [ ] Escribir informe
+ 
+ - [ ] Limpiar código siguiendo convenciones de C, proyectos y TP1
 
 ## Consultas
 

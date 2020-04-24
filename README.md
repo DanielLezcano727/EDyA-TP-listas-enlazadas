@@ -17,6 +17,7 @@
     * Reasignar el puntero:
       * ¿Que hacer respecto a los datos primitivos?
       * ¿Que hacer hacer si el usuario modifica los datos?
+ * Fijarse lo del triple puntero en generar datos de prueba -> leer paises
 
 ## Notas para informe
 * Convenciones:

@@ -8,9 +8,7 @@
     
  - [X] Implementacion de insertion sort **Dani** 
  
- - [ ] Generador de personas
-    - [ ] Implementar caso X personas de Y donde X < Y/2
-    - [ ] Implementar caso X personas de Y donde X > Y/2
+ - [X] Generador de personas
     
  - [ ] Implementar input para Ordenar lista
  

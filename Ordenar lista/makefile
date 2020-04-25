@@ -3,9 +3,10 @@ ORDENAMIENTO1 = selection
 ORDENAMIENTO2 = insertion
 ORDENAMIENTO3 = merge
 ORDENAMIENTO_H = ordenamientos
+DATA = manejodatos
 SALIDA = main
 
-all: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o main
+all: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main
 
 $(ESTRUCTURA).o: $(ESTRUCTURA).h $(ESTRUCTURA).c
 	gcc -Wall -Wextra -Werror -std=c99 -g -c $(ESTRUCTURA).c
@@ -19,8 +20,11 @@ $(ORDENAMIENTO2).o: $(ORDENAMIENTO_H).h $(ORDENAMIENTO2).c
 $(ORDENAMIENTO3).o: $(ORDENAMIENTO_H).h $(ORDENAMIENTO3).c
 	gcc -Wall -Wextra -Werror -std=c99 -g -c $(ORDENAMIENTO3).c
 
-main: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o main.c
-	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o
+$(DATA).o: $(DATA).h $(DATA).c $(ESTRUCTURA).o
+	gcc -Wall -Wextra -Werror -std=c99 -g -c $(DATA).c
+
+main: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main.c
+	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o
 
 clean:
 	rm *.o main

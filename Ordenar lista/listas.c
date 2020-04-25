@@ -98,3 +98,10 @@ void glist_recorrer(GList* lista, FuncionVisitante visit) {
   for(GNodo *aux = lista->inicio; aux!=NULL;aux=aux->sig)
     visit(aux->dato);
 }
+
+void glist_escribir_archivo(GList* lista, FuncionEscritura visit, char* nombreSalida) {
+  FILE* fsalida = fopen(nombreSalida, "w");
+  for(GNodo *aux = lista->inicio; aux!=NULL;aux=aux->sig)
+    visit(aux->dato, fsalida);
+  fclose(fsalida);
+}

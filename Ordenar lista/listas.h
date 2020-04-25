@@ -2,8 +2,10 @@
 #define __GLIST_H__
 
 #include <stddef.h>
+#include <stdio.h>
 
 typedef void (*FuncionVisitante) (void*);
+typedef void (*FuncionEscritura) (void*, FILE*);
 typedef void (*Destruir) (void*);
 typedef void* (*Copiar) (void*);
 
@@ -30,5 +32,7 @@ GList* glist_agregar_inicio(GList*, void*, Copiar);
 GList* glist_insertar(GList*, int, void*, Copiar);
 
 void glist_recorrer(GList*, FuncionVisitante);
+
+void glist_escribir_archivo(GList* lista, FuncionEscritura visit, char* nombreSalida);
 
 #endif /* __GLIST_H__ */

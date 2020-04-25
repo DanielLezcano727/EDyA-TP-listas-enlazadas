@@ -12,7 +12,7 @@ GNodo* busqueda_por_condicion(GNodo* nodos, FuncionComparadora compara) {
   GNodo* temp = nodos;
 
   while(temp != NULL) {
-    if(compara(temp->dato, min->dato)) { // COMPARA: true si el primero > segundo
+    if(compara(temp->dato, min->dato) < 0) { // COMPARA: true si el primero > segundo
       min = temp;
     }
     temp = temp->sig;

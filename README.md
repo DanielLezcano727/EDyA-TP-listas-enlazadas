@@ -2,13 +2,20 @@
 
 ## Tareas:
  - [X] Implementacion de selection sort **Fran** 
+     - [ ] Respetar signatura dada por el PDF
  
  - [ ] Implementacion de merge sort
-    - [ ] Mergear alguna implemetación
+     - [ ] Mergear alguna implemetación
+     - [ ] Respetar signatura dada por el PDF
     
  - [X] Implementacion de insertion sort **Dani** 
+     - [ ] Respetar signatura dada por el PDF
  
  - [X] Generador de personas
+ 
+ - [ ] Cambiar función Compara para que respete PDF
+ 
+ - [ ] Considerar sugerencia final del TP (Funcion que toma archivoSalida, lista, metodo ord, func comp y retorna la lista ordenada escrita en un archivo)
     
  - [ ] Implementar input para Ordenar lista
  

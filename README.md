@@ -17,10 +17,10 @@
  
  - [ ] Considerar sugerencia final del TP (Funcion que toma archivoSalida, lista, metodo ord, func comp y retorna la lista ordenada escrita en un archivo)
     
- - [ ] Implementar input para Ordenar lista
+ - [X] Implementar input para Ordenar lista
  
- - [ ] Implementar output para Ordenar lista
-    - [ ] Función que parsea struct_persona a string
+ - [X] Implementar output para Ordenar lista
+    - [X] Función que parsea struct_persona a string
     
  - [ ] Escribir informe
  

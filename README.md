@@ -22,6 +22,8 @@
  - [X] Implementar output para Ordenar lista
     - [X] Función que parsea struct_persona a string
     
+ - [ ] Decidir e implementar un funcionamiento para makefile
+  
  - [ ] Escribir informe
  
  - [ ] Limpiar código siguiendo convenciones de C, proyectos y TP1

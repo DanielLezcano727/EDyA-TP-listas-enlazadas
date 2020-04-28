@@ -19,11 +19,16 @@ void visitar_persona(void *persona, FILE *archivo) {
   fprintf(archivo, "%s, %d, %s\n", p->nombre, p->edad, p->lugarNacimiento);
 }
 
+void visitar_persona_consola(void *persona) {
+  Persona *p = (Persona *) persona;
+  printf("%s, %d, %s\n", p->nombre, p->edad, p->lugarNacimiento);
+}
+
 int main(int argc, char *argv[]) {
   if (argc == 3) {
     GList *lista = glist_crear();
     generar_lista_personas(argv[1], lista);
-    insertion_sort(lista, menor_nombre);
+    selection_sort(lista, menor_nombre);
     glist_escribir_archivo(lista, visitar_persona, argv[2]);
     glist_destruir(lista, destruir_persona);
   }else

@@ -2,18 +2,18 @@
 
 ## Tareas:
  - [X] Implementacion de selection sort **Fran** 
-     - [ ] Respetar signatura dada por el PDF
+     - [X] Respetar signatura dada por el PDF
  
- - [ ] Implementacion de merge sort
-     - [ ] Mergear alguna implemetación
-     - [ ] Respetar signatura dada por el PDF
+ - [X] Implementacion de merge sort
+     - [X] Mergear alguna implemetación
+     - [X] Respetar signatura dada por el PDF
     
  - [X] Implementacion de insertion sort **Dani** 
-     - [ ] Respetar signatura dada por el PDF
+     - [X] Respetar signatura dada por el PDF
  
  - [X] Generador de personas
  
- - [ ] Cambiar función Compara para que respete PDF
+ - [X] Cambiar función Compara para que respete PDF
  
  - [ ] Considerar sugerencia final del TP (Funcion que toma archivoSalida, lista, metodo ord, func comp y retorna la lista ordenada escrita en un archivo)
     
@@ -26,7 +26,7 @@
   
  - [ ] Escribir informe
  
- - [ ] Limpiar código siguiendo convenciones de C, proyectos y TP1
+ - [X] Limpiar código siguiendo convenciones de C, proyectos y TP1
 
 ## Consultas
 

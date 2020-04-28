@@ -1,5 +1,14 @@
 FUNCIONES = funciones
 SALIDA = main
+ARCHIVO_NOMBRES = nombres1.txt
+ARCHIVO_PAISES = paises.txt
+
+build: all
+	@echo "Ingrese la cantidad de personas: "; \
+    read CANT; \
+	./main $(ARCHIVO_NOMBRES) $(ARCHIVO_PAISES) $$CANT entrada.txt
+	mv entrada.txt ./../Ordenar_lista/
+	make clean
 
 all: $(FUNCIONES).o main
 

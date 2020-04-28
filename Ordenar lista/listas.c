@@ -109,3 +109,14 @@ int glist_largo(GList* lista){
   for(GNodo *aux=lista->inicio; aux!=NULL;aux=aux->sig, largo++);
   return largo;
 }
+
+void swap_data(GNodo *nodo1, GNodo *nodo2) {
+  void *aux = nodo1->dato;
+  nodo1->dato = nodo2->dato;
+  nodo2->dato = aux;
+}
+
+GNodo* devolver_nodo (GNodo *inicio, int pos) {
+  for (int i = 1; i < pos; i++, inicio = inicio->sig);
+  return inicio;
+}

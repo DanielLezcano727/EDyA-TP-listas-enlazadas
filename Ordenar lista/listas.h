@@ -21,6 +21,10 @@ typedef struct _GList {
 
 GList *glist_crear();
 
+void swap_data(GNodo *nodo1, GNodo *nodo2);
+
+GNodo* devolver_nodo(GNodo *inicio, int pos);
+
 void glist_destruir(GList *lista, Destruir d);
 
 int glist_vacia(GList *lista);

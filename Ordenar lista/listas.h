@@ -35,4 +35,6 @@ void glist_recorrer(GList *lista, FuncionVisitante visit);
 
 void glist_escribir_archivo(GList *lista, FuncionEscritura visit, char *nombreSalida);
 
+int glist_largo(GList* lista);
+
 #endif

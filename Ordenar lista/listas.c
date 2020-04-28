@@ -103,3 +103,9 @@ void glist_escribir_archivo(GList *lista, FuncionEscritura escribir, char *nombr
     escribir(aux->dato, fSalida);
   fclose(fSalida);
 }
+
+int glist_largo(GList* lista){
+  int largo = 0;
+  for(GNodo *aux=lista->inicio; aux!=NULL;aux=aux->sig, largo++);
+  return largo;
+}

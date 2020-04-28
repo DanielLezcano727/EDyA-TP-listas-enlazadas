@@ -6,6 +6,11 @@ ORDENAMIENTO_H = ordenamientos
 DATA = manejodatos
 SALIDA = main
 
+build: all
+	cd ./../Generar_datos/ && make build
+	./main entrada.txt salida.txt
+	make clean
+
 all: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main
 
 $(ESTRUCTURA).o: $(ESTRUCTURA).h $(ESTRUCTURA).c

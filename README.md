@@ -37,7 +37,10 @@
       * ¿Que hacer respecto a los datos primitivos?
       * ¿Que hacer hacer si el usuario modifica los datos?
  * Fijarse lo del triple puntero en generar datos de prueba -> leer paises
-
+ * Sobre el punto 2d (Como funciona el tema de las dos funciones. Los dos metodos de comparacion, como interpretar)
+ * Stable sort. Nosotros leemos al reves el archivo (con agregar inicio), el stable sort deberia devolver al reves tambien
+ * De que se mide el tiempo (algoritmo o programa completo). Y si se hace solo del algoritmo, como se mide el algoritmo dentro del programa?)
+ 
 ## Notas para informe
 * Convenciones:
    * La función que compara es T si x > y

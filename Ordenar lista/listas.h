@@ -21,6 +21,10 @@ typedef struct _GList {
 
 GList *glist_crear();
 
+void swap_data(GNodo *nodo1, GNodo *nodo2);
+
+GNodo* devolver_nodo(GNodo *inicio, int pos);
+
 void glist_destruir(GList *lista, Destruir d);
 
 int glist_vacia(GList *lista);
@@ -34,5 +38,7 @@ GList *glist_insertar(GList *lista, int pos, void *dato, Copiar cop);
 void glist_recorrer(GList *lista, FuncionVisitante visit);
 
 void glist_escribir_archivo(GList *lista, FuncionEscritura visit, char *nombreSalida);
+
+int glist_largo(GList* lista);
 
 #endif

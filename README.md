@@ -30,6 +30,8 @@
  
  - [ ] Considerar multiplicar dos rand (respetando que sigan dentro del rango) para evitar limite de windows
     -[ ] Alternativamente separar el código para cada SO
+    
+ - [ ] Una ejecucion, 6 resultados
  
  
 

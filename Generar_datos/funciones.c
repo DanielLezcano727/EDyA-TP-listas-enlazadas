@@ -40,19 +40,23 @@ int leer_paises(char *nameFilePaises, unsigned char ***paises) {
   return cantPaises;
 }
 
-int cant_personas(FILE * fPersonas) {
-  int cantLineas;
+int cant_lineas(FILE * archivo) {
+  int cant;
   unsigned char buff[MAX_BUFFER];
-  for (cantLineas = 0; fscanf(fPersonas, "%[^\r\n]\r\n", buff) != EOF; cantLineas++);
-  fseek(fPersonas, 0, SEEK_SET);
-  return cantLineas;
+  for (cant = 0; fscanf(archivo, "%[^\r\n]\r\n", buff) != EOF; cant++);
+  fseek(archivo, 0, SEEK_SET);
+  return cant;
 }
 
 int *generar_numeros_aleatorios(int cantidad, int limite) {
   int *numeros = malloc(sizeof(int) * cantidad);
 
-  for (int i = 0; i < cantidad; i++)
-    numeros[i] = rand() % limite;
+  for (int i = 0; i < cantidad; i++) {
+    if (RAND_MAX > limite)
+      numeros[i] = rand() % limite;
+    else
+      numeros[i] = (rand() * rand()) % limite;
+  }
 
   return numeros;
 }
@@ -72,7 +76,7 @@ void generar_resultado(char *nameFileSalida, char *nameFilePersonas, unsigned ch
   FILE *salida = fopen(nameFileSalida, "w");
   FILE *fPersonas = fopen(nameFilePersonas, "r");
 
-  int *personasAleatorias = generar_numeros_aleatorios(cantPedida, cant_personas(fPersonas));
+  int *personasAleatorias = generar_numeros_aleatorios(cantPedida, cant_lineas(fPersonas));
   qsort(personasAleatorias, cantPedida, sizeof(int), &comparar_enteros);
 
   unsigned char *persona = malloc(sizeof(char) * MAX_BUFFER);

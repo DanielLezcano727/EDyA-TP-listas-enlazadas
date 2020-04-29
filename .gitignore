@@ -1,5 +1,5 @@
 *.o
 main
-salida.txt
+salida*
 vgcore*
 entrada*

@@ -4,11 +4,13 @@ ORDENAMIENTO2 = insertion
 ORDENAMIENTO3 = merge
 ORDENAMIENTO_H = ordenamientos
 DATA = manejodatos
+FILE_ENTRADA = entrada
+FILE_SALIDA = salida
 SALIDA = main
 
 build: all
 	cd ./../Generar_datos/ && make build
-	./main entrada.txt salida.txt
+	./main $(FILE_ENTRADA).txt $(FILE_SALIDA)
 	make clean
 
 all: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main
@@ -32,4 +34,7 @@ main: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $
 	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o
 
 clean:
-	rm *.o main
+	rm *.o
+
+clean_all:
+	rm *.o main $(FILE_ENTRADA)* $(FILE_SALIDA)* vgcore*

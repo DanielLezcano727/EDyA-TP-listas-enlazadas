@@ -2,6 +2,7 @@
 #include "listas.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 void strcpy_unsigned(unsigned char *copia, unsigned char *original) {
   int i;
@@ -23,40 +24,26 @@ int strcmp_unsigned(unsigned char *cadena1, unsigned char *cadena2) {
   return cadena1[i] - cadena2[i];
 }
 
-void generar_persona(unsigned char *datos, Persona *individuo) {
+int strtok_unsigned(unsigned char* palabra, char delimitador){
   int i;
-  int current = 0;
-  int flag = 0;
-  char aux[256];
+  for(i=0;palabra[i]!=delimitador && palabra[i] != '\0';i++);
+  palabra[i]='\0';
+  return i + 1;
+}
 
-  for (i = 0; datos[i] != '\0'; i++) {
+void generar_persona(unsigned char *datos, Persona *persona) {
+  int cant_mover = 0;
 
-    if (datos[i] != ',')
-      switch (flag) {
-      case 0:
-        individuo->nombre[current++] = datos[i];
-        break;
-      case 1:
-        aux[current++] = datos[i];
-        break;
-      case 2:
-        individuo->lugarNacimiento[current++] = datos[i];
-        break;
-      }
-    else {
-      if (flag == 0)
-        individuo->nombre[current] = '\0';
-      else if (flag == 1) {
-        aux[current] = '\0';
-        individuo->edad = atoi(aux);
-      }
-
-      flag++;
-      i++;
-      current = 0;
-    }
+  for(int i=0;i<3; i++){
+    cant_mover = strtok_unsigned(datos, ',');
+    if(i==0)
+      strcpy_unsigned(persona->nombre, datos);
+    else if(i==1)
+      persona->edad = atoi((char*)datos);
+    else
+      strcpy_unsigned(persona->lugarNacimiento, datos);
+    datos += cant_mover + 1;
   }
-  individuo->lugarNacimiento[current] = '\0';
 }
 
 void generar_lista_personas(char *nombreArchivo, GList *lista) {
@@ -72,7 +59,7 @@ void generar_lista_personas(char *nombreArchivo, GList *lista) {
 
   for (i = 0; fscanf(fPersonas, "%[^\n]\n", buff) != EOF; i++) {
     generar_persona(buff, p);
-    lista = glist_agregar_inicio(lista, p, copia);
+    lista = glist_agregar_final(lista, p, copiar_persona);
   }
 
   free(p->lugarNacimiento);
@@ -82,17 +69,23 @@ void generar_lista_personas(char *nombreArchivo, GList *lista) {
   fclose(fPersonas);
 }
 
-void *copia(void *dato) {
+void *copiar_persona(void *persona) {
   Persona *datoCopia = malloc(sizeof(Persona));
 
-  int largo = strlen_unsigned(((Persona *) dato)->nombre) + 1;
+  int largo = strlen_unsigned(((Persona *) persona)->nombre) + 1;
   datoCopia->nombre = malloc(sizeof(char) * largo);
-  strcpy_unsigned(datoCopia->nombre, ((Persona *) dato)->nombre);
+  strcpy_unsigned(datoCopia->nombre, ((Persona *) persona)->nombre);
 
-  largo = strlen_unsigned(((Persona *) dato)->lugarNacimiento) + 1;
+  largo = strlen_unsigned(((Persona *) persona)->lugarNacimiento) + 1;
   datoCopia->lugarNacimiento = malloc(sizeof(char) * largo);
-  strcpy_unsigned(datoCopia->lugarNacimiento, ((Persona *) dato)->lugarNacimiento);
+  strcpy_unsigned(datoCopia->lugarNacimiento, ((Persona *) persona)->lugarNacimiento);
 
-  datoCopia->edad = ((Persona *) dato)->edad;
+  datoCopia->edad = ((Persona *) persona)->edad;
   return (void *) datoCopia;
+}
+
+void ordenar(GList *lista, Ordenamiento algOrdenamiento, FuncionComparadora compara, char *nombreSalida, FuncionEscritura escribirDato) {
+  algOrdenamiento(lista, compara);
+  glist_escribir_archivo(lista, escribirDato, nombreSalida);
+  glist_destruir_sin_datos(lista);
 }

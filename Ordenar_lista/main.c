@@ -3,6 +3,7 @@
 #include "manejodatos.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int menor_nombre(void *persona1, void *persona2) {
   return strcmp_unsigned(((Persona*) persona1)->nombre, ((Persona*) persona2)->nombre);
@@ -32,9 +33,33 @@ int main(int argc, char *argv[]) {
   if (argc == 3) {
     GList *lista = glist_crear();
     generar_lista_personas(argv[1], lista);
-    selection_sort(lista, menor_nombre);
-    glist_escribir_archivo(lista, visitar_persona, argv[2]);
-    glist_destruir(lista, destruir_persona);
+    char salida[30];
+
+    GList *listaCopia = glist_copia(lista);
+    strcpy(salida, argv[2]);
+    ordenar(lista, selection_sort, menor_nombre, strcat(salida, "_selection1.txt"), visitar_persona);
+    
+    lista = glist_copia(listaCopia);
+    strcpy(salida, argv[2]);
+    ordenar(lista, selection_sort, menor_edad, strcat(salida, "_selection2.txt"), visitar_persona);
+    
+    lista = glist_copia(listaCopia);
+    strcpy(salida, argv[2]);
+    ordenar(lista, insertion_sort, menor_nombre, strcat(salida, "_insertion1.txt"), visitar_persona);
+    
+    lista = glist_copia(listaCopia);
+    strcpy(salida, argv[2]);
+    ordenar(lista, insertion_sort, menor_edad, strcat(salida, "_insertion2.txt"), visitar_persona);
+    
+    lista = glist_copia(listaCopia);
+    strcpy(salida, argv[2]);
+    ordenar(lista, merge_sort, menor_nombre, strcat(salida, "_merge1.txt"), visitar_persona);
+    
+    lista = glist_copia(listaCopia);
+    strcpy(salida, argv[2]);
+    ordenar(lista, merge_sort, menor_edad, strcat(salida, "_merge2.txt"), visitar_persona);
+
+    glist_destruir(listaCopia, destruir_persona);
   }else
     printf("Ingrese los parametros correctamente.\n");
   return 0;

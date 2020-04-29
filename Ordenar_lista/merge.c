@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void merge(GNodo *lista1, int cantLista1, GNodo *lista2, int cantLista2, GNodo *finalLista, FuncionComparadora compara) {
+GNodo* merge(GNodo *lista1, int cantLista1, GNodo *lista2, int cantLista2, GNodo *finalLista, FuncionComparadora compara) {
   GNodo *auxLista1 = lista1;
   GNodo *auxLista2 = lista2;
   GNodo *listaOrdenada = auxLista1;
@@ -42,19 +42,21 @@ void merge(GNodo *lista1, int cantLista1, GNodo *lista2, int cantLista2, GNodo *
       listaOrdenada = listaOrdenada->sig;
     listaOrdenada->sig = finalLista;
   }
+  return listaOrdenada;
 }
 
-void merge_sort(GNodo *inicio, GNodo *fin, int largo, FuncionComparadora compara) {
+GNodo* dividir_lista(GNodo *inicio, GNodo *fin, int largo, FuncionComparadora compara) {
   if (largo > 1) {
     int medio = largo / 2;
-    GNodo *nodo_medio = devolver_nodo(inicio, medio + 1);
-    merge_sort(inicio, nodo_medio, medio, compara);
-    merge_sort(nodo_medio, fin, largo - medio, compara);
-    merge(inicio, medio, nodo_medio, largo - medio, fin, compara);
+    GNodo *nodo_medio = glist_devolver_nodo(inicio, medio + 1);
+    dividir_lista(inicio, nodo_medio, medio, compara);
+    dividir_lista(nodo_medio, fin, largo - medio, compara);
+    return merge(inicio, medio, nodo_medio, largo - medio, fin, compara);
   }
+  return NULL;
 }
 
-void mergesort(GList *lista, FuncionComparadora compara) {
+void merge_sort(GList *lista, FuncionComparadora compara) {
   if (lista != NULL && lista->inicio != lista->fin)
-    merge_sort(lista->inicio, NULL, glist_largo(lista), compara);
+    lista->fin = dividir_lista(lista->inicio, NULL, glist_largo(lista), compara);
 }

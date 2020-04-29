@@ -19,26 +19,50 @@ typedef struct _GList {
   GNodo *fin;
 } GList;
 
+/**
+ * Crea una lista general inicializada a NULL
+*/
 GList *glist_crear();
 
-void swap_data(GNodo *nodo1, GNodo *nodo2);
-
-GNodo* devolver_nodo(GNodo *inicio, int pos);
-
+/**
+ * Libera la memoria ocupada por una lista general y sus datos mediante una funcion especifica
+*/
 void glist_destruir(GList *lista, Destruir d);
 
-int glist_vacia(GList *lista);
-
+/**
+ * Agrega un dato al final de la lista general copiandolo mediante una funcion especifica
+*/
 GList *glist_agregar_final(GList *lista, void *dato, Copiar cop);
 
-GList *glist_agregar_inicio(GList *lista, void *dato, Copiar cop);
-
-GList *glist_insertar(GList *lista, int pos, void *dato, Copiar cop);
-
-void glist_recorrer(GList *lista, FuncionVisitante visit);
-
+/**
+ * Escribe el contenido de una lista general en un archivo de nombre dado
+*/
 void glist_escribir_archivo(GList *lista, FuncionEscritura visit, char *nombreSalida);
 
+/**
+ * Devuelve el largo de una lista general
+*/
 int glist_largo(GList* lista);
+
+/**
+ * Dado un nodo inicio y una posicion devuelve el nodo que esta en la posicion correspondiente
+*/
+GNodo* glist_devolver_nodo(GNodo *inicio, int pos);
+
+/**
+ * Libera la memoria ocupada por una lista general sin liberar la ocupada
+ * por sus datos
+*/
+void glist_destruir_sin_datos(GList* lista);
+
+/**
+ * Crea una lista general copiando las referencias de otra lista
+*/
+GList* glist_copia(GList* lista);
+
+/**
+ * Dados dos nodos intercambia los datos de estos
+*/
+void swap_data(GNodo *nodo1, GNodo *nodo2);
 
 #endif

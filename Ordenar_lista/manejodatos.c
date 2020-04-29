@@ -2,7 +2,6 @@
 #include "listas.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 void strcpy_unsigned(unsigned char *copia, unsigned char *original) {
   int i;

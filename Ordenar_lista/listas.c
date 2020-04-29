@@ -41,10 +41,12 @@ GList *glist_agregar_final(GList *lista, void *dato, Copiar cop) {
 }
 
 void glist_escribir_archivo(GList *lista, FuncionEscritura escribir, char *nombreSalida) {
-  FILE *fSalida = fopen(nombreSalida, "w");
-  for (GNodo *aux = lista->inicio; aux != NULL; aux = aux->sig)
-    escribir(aux->dato, fSalida);
-  fclose(fSalida);
+  if(lista != NULL){
+    FILE *fSalida = fopen(nombreSalida, "w");
+    for (GNodo *aux = lista->inicio; aux != NULL; aux = aux->sig)
+      escribir(aux->dato, fSalida);
+    fclose(fSalida);
+  }
 }
 
 int glist_largo(GList* lista){

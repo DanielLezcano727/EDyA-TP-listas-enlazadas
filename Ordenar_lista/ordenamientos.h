@@ -13,7 +13,7 @@ GNodo* dividir_lista(GNodo *inicio, GNodo *fin, int largo, FuncionComparadora co
 
 /**
  * Dadas dos sublistas ordenadas y la cantidad de elementos de cada sublista, une las dos sublistas ordenandolas 
- * sobre la primer lista
+ * sobre la primer lista y devuelve el ultimo nodo
 */
 GNodo* merge(GNodo *lista1, int cantLista1, GNodo *lista2, int cantLista2, GNodo *finalLista, FuncionComparadora compara);
 

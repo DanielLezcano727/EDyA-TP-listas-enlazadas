@@ -7,38 +7,38 @@ GNodo* merge(GNodo *lista1, int cantLista1, GNodo *lista2, int cantLista2, GNodo
   GNodo *auxLista1 = lista1;
   GNodo *auxLista2 = lista2;
   GNodo *listaOrdenada = auxLista1;
-  int contadorLista1 = 0, contadorLista2 = 0;
+  int indiceLista1 = 0, indiceLista2 = 0;
 
   if (compara(auxLista1->dato, auxLista2->dato) < 0) {
     auxLista1 = auxLista1->sig;
-    contadorLista1++;
+    indiceLista1++;
   } else {
     swap_data(auxLista1, auxLista2);
-    GNodo *aux = auxLista1->sig;
+    GNodo *aux = auxLista1->sig; 
     auxLista1 = auxLista2;
     auxLista2 = auxLista2->sig;
     auxLista1->sig = aux;
-    contadorLista2++;
+    indiceLista2++;
   }
 
-  while (contadorLista1 < cantLista1 && contadorLista2 < cantLista2) {
+  while (indiceLista1 < cantLista1 && indiceLista2 < cantLista2) {
     if (compara(auxLista1->dato, auxLista2->dato) <= 0) {
       listaOrdenada->sig = auxLista1;
       auxLista1 = auxLista1->sig;
-      contadorLista1++;
+      indiceLista1++;
     } else {
       listaOrdenada->sig = auxLista2;
       auxLista2 = auxLista2->sig;
-      contadorLista2++;
+      indiceLista2++;
     }
     listaOrdenada = listaOrdenada->sig;
   }
 
-  if (contadorLista2 < cantLista2)
+  if (indiceLista2 < cantLista2)
     listaOrdenada->sig = auxLista2;
 
-  if (contadorLista1 < cantLista1) {
-    for (listaOrdenada->sig = auxLista1; contadorLista1 < cantLista1; contadorLista1++)
+  if (indiceLista1 < cantLista1) {
+    for (listaOrdenada->sig = auxLista1; indiceLista1 < cantLista1; indiceLista1++)
       listaOrdenada = listaOrdenada->sig;
     listaOrdenada->sig = finalLista;
   }

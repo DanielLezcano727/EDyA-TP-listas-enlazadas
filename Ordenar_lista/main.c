@@ -29,6 +29,12 @@ void visitar_persona_consola(void *persona) {
   printf("%s, %d, %s\n", p->nombre, p->edad, p->lugarNacimiento);
 }
 
+/**
+ * Los parametros para ejecutar el programa son:
+ *   1 - El archivo donde se encuentran las personas con su respectiva extension
+ *   2 - El nombre que se quiere para la salida. Tener en cuenta que debe ser sin extension y que
+ *       los archivos que generara seran de la forma nombre_selection1.txt
+*/
 int main(int argc, char *argv[]) {
   if (argc == 3) {
     GList *lista = glist_crear();
@@ -61,6 +67,6 @@ int main(int argc, char *argv[]) {
 
     glist_destruir(listaCopia, destruir_persona);
   }else
-    printf("Ingrese los parametros correctamente.\n");
+    printf("Ingrese los parametros correctamente.\n ./programa archivo_entrada nombre_salida");
   return 0;
 }

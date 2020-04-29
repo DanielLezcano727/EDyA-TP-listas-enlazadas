@@ -4,13 +4,13 @@ ORDENAMIENTO2 = insertion
 ORDENAMIENTO3 = merge
 ORDENAMIENTO_H = ordenamientos
 DATA = manejodatos
-FILE_ENTRADA = entrada
+FILE_ENTRADA = entrada.txt
 FILE_SALIDA = salida
-SALIDA = main
+PROGRAMA_SALIDA = main
 
 build: all
-	cd ./../Generar_datos/ && make build
-	./main $(FILE_ENTRADA).txt $(FILE_SALIDA)
+	cd ./../Generar_datos/ && make build; mv $(FILE_ENTRADA) ./../Ordenar_lista/
+	./main $(FILE_ENTRADA) $(FILE_SALIDA)
 	make clean
 
 all: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main
@@ -31,7 +31,7 @@ $(DATA).o: $(DATA).h $(DATA).c $(ESTRUCTURA).o
 	gcc -Wall -Wextra -Werror -std=c99 -g -c $(DATA).c
 
 main: $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o main.c
-	gcc -Wall -Wextra -Werror -std=c99 -g -o $(SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o
+	gcc -Wall -Wextra -Werror -std=c99 -g -o $(PROGRAMA_SALIDA) main.c $(ESTRUCTURA).o $(ORDENAMIENTO1).o $(ORDENAMIENTO2).o $(ORDENAMIENTO3).o $(DATA).o
 
 clean:
 	rm *.o

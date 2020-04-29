@@ -27,6 +27,11 @@
  - [ ] Escribir informe
  
  - [X] Limpiar código siguiendo convenciones de C, proyectos y TP1
+ 
+ - [ ] Considerar multiplicar dos rand (respetando que sigan dentro del rango) para evitar limite de windows
+    -[ ] Alternativamente separar el código para cada SO
+ 
+ 
 
 ## Consultas
 
